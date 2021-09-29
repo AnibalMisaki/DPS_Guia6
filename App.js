@@ -3,6 +3,8 @@ import {View, StyleSheet,Image, Text, ScrollView, Modal, Button, TouchableHighli
  
 const App = () =>{ 
   const [modalVisibleplaya, setModalVisibleplaya] = useState(false);
+  const [modalpresi, setModalpresi] = useState(false);
+  const [modaldoble, setModaldoble] = useState(false);
   return( 
     <>
       <ScrollView>
@@ -12,9 +14,33 @@ const App = () =>{
         >
           <View style={styles.vistaModal}>
             <View style={styles.Modal}>
-              <Text style={styles.subtitulo}>IHotel Sheratons Presidente</Text>
+              <Text style={styles.subtitulo}>Hotel Sheratons Presidente</Text>
               <Text>El Mejor Hotel para visitar en el Salvador</Text>
               <Button title="Cerrar" onPress={()=>{setModalVisibleplaya(!modalVisibleplaya)}}></Button>
+            </View>
+          </View>
+        </Modal>
+        <Modal transparent={true} animationType="slide" visible={modalpresi} onRequestClose={() =>{
+          alert('Modal has been closed.');
+        }}
+        >
+          <View style={styles.vistaModal}>
+            <View style={styles.Modal}>
+              <Text style={styles.subtitulo}>Suite Presidencial</Text>
+              <Text>Una de las mejores habitaciones individuales</Text>
+              <Button title="Cerrar" onPress={()=>{setModalpresi(!modalpresi)}}></Button>
+            </View>
+          </View>
+        </Modal>
+        <Modal transparent={true} animationType="slide" visible={modaldoble} onRequestClose={() =>{
+          alert('Modal has been closed.');
+        }}
+        >
+          <View style={styles.vistaModal}>
+            <View style={styles.Modal}>
+              <Text style={styles.subtitulo}>Suite Doble Deluxe</Text>
+              <Text>La mejor opcion para disfrutar en pareja</Text>
+              <Button title="Cerrar" onPress={()=>{setModaldoble(!modaldoble)}}></Button>
             </View>
           </View>
         </Modal>
@@ -44,32 +70,76 @@ const App = () =>{
               <Image style={styles.ciudad} source={require('./src/img/habitaciones.jpg')}/>
             </View>
           </ScrollView>
-          <Text style={styles.titulo}>Tipos de platillos</Text>
+          <Text style={styles.titulo}>Tipos de habitaciones</Text>
           <View>
             <View>
-              <Image style={styles.mejores} source={require('./src/img/mejores1.jpg')}/>
+              <Text style={styles.subtitulo}>Suite Presidencial</Text>
+              <ScrollView horizontal>
+                  <View>
+                    <TouchableHighlight 
+                      onPress={()=>{setModalpresi(!modalpresi)}}
+                    >
+                      <Image style={styles.ciudad} source={require('./src/img/presi1.jpg')}/>
+                    </TouchableHighlight>
+                  </View>
+                  <View>
+                    <Image style={styles.ciudad} source={require('./src/img/presi2.jpg')}/>
+                  </View>
+                  <View>
+                    <Image style={styles.ciudad} source={require('./src/img/presi3.jpg')}/>
+                  </View>
+                
+              </ScrollView>
             </View>
             <View>
-              <Image style={styles.mejores} source={require('./src/img/mejores2.jpg')}/>
-            </View>
-            <View>
-              <Image style={styles.mejores} source={require('./src/img/mejores3.jpg')}/>
+              <Text style={styles.subtitulo}>Suite Doble Deluxe</Text>
+              <ScrollView horizontal>
+                  <View>
+                    <TouchableHighlight 
+                      onPress={()=>{setModaldoble(!modaldoble)}}
+                    >
+                      <Image style={styles.ciudad} source={require('./src/img/doble1.jpg')}/>
+                    </TouchableHighlight>
+                  </View>
+                  <View>
+                    <Image style={styles.ciudad} source={require('./src/img/doble2.jpg')}/>
+                  </View>
+                  <View>
+                    <Image style={styles.ciudad} source={require('./src/img/doble3.jpg')}/>
+                  </View>
+                
+              </ScrollView>
             </View>
           </View>
 
-          <Text style={styles.titulo}>Rutas Turisticas.</Text>
+          <Text style={styles.titulo}>Servicios del Hotel</Text>
           <View style={styles.listado}>
             <View style={styles.listaItem}>
-              <Image style={styles.mejores} source={require('./src/img/ruta1.jpg')}></Image>
+              <Text style={styles.subtitulo}>Piscina</Text>
+              <Image style={styles.mejores} source={require('./src/img/piscina.jpg')}></Image>
             </View>
             <View style={styles.listaItem}>
-              <Image style={styles.mejores} source={require('./src/img/ruta2.jpg')}></Image>
+            <Text style={styles.subtitulo}>Bar</Text>
+              <Image style={styles.mejores} source={require('./src/img/bar.jpg')}></Image>
             </View>
             <View style={styles.listaItem}>
-              <Image style={styles.mejores} source={require('./src/img/ruta3.jpg')}></Image>
+            <Text style={styles.subtitulo}>Spa</Text>
+              <Image style={styles.mejores} source={require('./src/img/spa.jpg')}></Image>
             </View>
             <View style={styles.listaItem}>
-              <Image style={styles.mejores} source={require('./src/img/ruta4.jpg')}></Image>
+            <Text style={styles.subtitulo}>Salon de Eventos</Text>
+              <Image style={styles.mejores} source={require('./src/img/event.jpg')}></Image>
+            </View>
+          </View>
+          <Text style={styles.titulo}>Lugares aledaños</Text>
+          <View style={styles.listado}>
+            <View style={styles.listaItem}>
+              <Text style={styles.subtitulo}>Parque del Bicentenario</Text>
+              <Image style={styles.mejores} source={require('./src/img/park.jpg')}></Image>
+            </View>
+            <View style={styles.listaItem}>
+              <Text style={styles.subtitulo}>Centro comercial Multiplaza</Text>
+              <Image style={styles.mejores} source={require('./src/img/multi.jpeg')}></Image>
             </View>
           </View>
         </View>
